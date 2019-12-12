@@ -2,9 +2,7 @@
 
 ## Considerações iniciais
 
-1. **Tempo estimado para solução: 2h** (o tempo será medido entre o primeiro e o último commit)
-2. Faça um **fork** deste repositório, resolva localmente e ao final submeta um **pull request** para avaliação.
-3. Necessários conhecimentos básicos de modelagem UML
+Faça um **fork** deste repositório, resolva localmente e ao final submeta um **pull request** para avaliação.
 
 ## Problema 01 - Ler e atualizar um arquivo XML
 
@@ -69,28 +67,6 @@ atualizarResumo( filename, mediaGeral, notaMinima, notaMaxima, quantidadeDeAluno
 imprimirTabelaDeAlunos( alunos );
 ```
 
-## Diagramas UML
-
-Criar diagramas UML de classe, atividade e sequência para o projeto e substituir as imagens na pasta `img`.
-
-## Diagrama de classe
-
-Substituir a imagem abaixo pelo diagrama correspondente.
-
-![Diagrama de classe](img/diagrama_de_classe.png)
-
-## Diagrama de atividade
-
-Substituir a imagem abaixo pelo diagrama correspondente.
-
-![Diagrama de atividade](img/diagrama_de_atividade.png)
-
-## Diagrama de sequência
-
-Substituir a imagem abaixo pelo diagrama correspondente.
-
-![Diagrama de sequencia](img/diagrama_de_sequencia.png)
-
 ## Considerações finais
 
 1. Criar uma classe `Aluno` com atributos privados e funções de acesso get/set para cada variável.
@@ -102,16 +78,9 @@ correspondente.
 3. Inclua tratamento de exceção para todos os casos que achar pertinente (por exemplo,
 número de alunos igual a zero no cálculo da média).
 
-4. Criar as rotinas teste e indicar como executar os teste.
-Usar JUnit ou qualquer outro framework de teste de sua preferência, o importante é ter como testar as funções.
-
-5. Criar um script `compilar.sh` (Unix/Linux) ou `compilar.bat` (Windows) para criação do executável.
-
-5. Criar um script `executar_teste.sh` (Unix/Linux) ou `executar_teste.bat` (Windows) para testar o executável.
-
-7. Comentar extensivamente o código indicando por que tal abordagem foi escolhida, isto me ajudará a entender suas decisões.
+4. Comentar extensivamente o código indicando por que tal abordagem foi escolhida, isto me ajudará a entender suas decisões.
 Por exemplo, "escolhi como container *Vector* em vem de *List* pois me traz a seguinte vantagem..."
 
-8. Os commits devem ser curtos (com o máximo 30 linhas), com foco único e com mensagem de log descritiva.
+5. Os commits devem ser curtos (com o máximo 30 linhas), com foco único e com mensagem de log descritiva.
 
 **Boa sorte**
