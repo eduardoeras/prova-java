@@ -1,18 +1,3 @@
-// import java.nio.file.*;
-// import java.io.File;
-// import java.util.*;
-// import java.lang.*;
-// import javax.xml.parsers.DocumentBuilderFactory;
-// import javax.xml.parsers.DocumentBuilder;
-// import org.w3c.dom.Document;
-// import org.w3c.dom.NodeList;
-// import org.w3c.dom.Node;
-// import org.w3c.dom.Element;
-// import javax.xml.transform.Transformer;
-// import javax.xml.transform.TransformerFactory;
-// import javax.xml.transform.dom.DOMSource;
-// import javax.xml.transform.stream.StreamResult;
-
 import src.estrutura.Aluno;
 import src.logica.Calculadora;
 import src.logica.Impressora;
@@ -39,7 +24,7 @@ class Problema01 {
       float notaMinima = calculadora.calcularNotaMinima( alunos );
       int quantidadeDeAlunos = calculadora.calcularQuantidadeDeAlunos( alunos );
       //leitorGravador.atualizarResumo( filename, mediaGeral, notaMinima, notaMaxima, quantidadeDeAlunos );
-      //impressora.imprimirTabelaDeAlunos( alunos );*/
+      impressora.imprimirTabelaDeAlunos( alunos );
     } catch( Exception e ) {
       e.printStackTrace();
       System.out.println( e );
@@ -47,5 +32,6 @@ class Problema01 {
   }
 }
 
-// vim: shiftwidth=2 tabstop=2 
+// vim: shiftwidth=2 tabstop=2
+// vim? Quem usa vim?
 
