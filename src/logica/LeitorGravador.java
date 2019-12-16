@@ -23,10 +23,21 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
     }
 
     //Methods
-    public List<Aluno> lerAlunosDoArquivoXml(String filename) throws ParserConfigurationException, SAXException, IOException {
-        SAXParserFactory factory = SAXParserFactory.newInstance();
-        SAXParser parser = factory.newSAXParser();
-        parser.parse(filename, this);
+    public List<Aluno> lerAlunosDoArquivoXml(String filename) {
+        try {
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            SAXParser parser = factory.newSAXParser();
+            parser.parse(filename, this);
+        } catch (ParserConfigurationException e) {
+            System.out.println("Erro ao configurar o parser XML");
+            e.printStackTrace();
+        } catch (SAXException e) {
+            System.out.println("Erro ao parserar o arquivo XML, o arquivo é um XML válido?");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Arquivo não encontrado!");
+            e.printStackTrace();
+        }
 
         return alunos;
     }
@@ -41,7 +52,12 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
     }
 
     public void startElement (String uri, String localName, String qName, Attributes attributes) {
-        System.out.println("qName : " + qName);
+        if (qName.equals("aluno")) {
+            Aluno aluno = new Aluno(); //Esse hardcode para popular os atributos do aluno é horrível, mas para um programa dessa escala e pelo tempo disponível dá pra passar
+            aluno.setId(attributes.getValue(0));
+            aluno.setNome(attributes.getValue(1));
+            aluno.setMedia(Float.parseFloat(attributes.getValue(2)));
+        }
     }
 
     public void endElement (String uri, String localName, String tag) {
