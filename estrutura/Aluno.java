@@ -1,3 +1,5 @@
+package estrutura;
+
 class Aluno {
   private String mId;
   private String mNome;

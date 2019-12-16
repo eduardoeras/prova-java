@@ -69,7 +69,7 @@ imprimirTabelaDeAlunos( alunos );
 
 ## Considerações finais
 
-1. Criar uma classe `Aluno` com atributos privados e funções de acesso get/set para cada variável.
+1. Criar uma classe `estrutura.Aluno` com atributos privados e funções de acesso get/set para cada variável.
 
 2. Para cada variável a atualizar no grupo resumo crie uma função especializada
 recebendo como único parâmetro a coleção de alunos e retornando o valor
