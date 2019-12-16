@@ -1,4 +1,4 @@
-package estrutura;
+package src.estrutura;
 
 public class Aluno {
   //Escolhi manter o padrão no nome dos atributos de uma palavra simples

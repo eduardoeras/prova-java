@@ -13,9 +13,9 @@
 // import javax.xml.transform.dom.DOMSource;
 // import javax.xml.transform.stream.StreamResult;
 
-import logica.Calculadora;
-import logica.Impressora;
-import logica.LeitorGravador;
+import src.logica.Calculadora;
+import src.logica.Impressora;
+import src.logica.LeitorGravador;
 
 class Problema01 {
 
@@ -29,14 +29,14 @@ class Problema01 {
     Impressora impressora = new Impressora();
     try {
       String filename = "alunos.xml";
-      backup( filename, filename + ".bak" );
+      /*backup( filename, filename + ".bak" );
       MeuContainerEscolhido alunos = leitorGravador.lerAlunosDoArquivoXml( filename );
       float mediaGeral = calculadora.calcularMediaGeral( alunos );
       float notaMaxima = calculadora.calcularNotaMaxima( alunos );
       float notaMinima = calculadora.calcularNotaMinima( alunos );
       int quantidadeDeAlunos = calculadora.calcularQuantidadeDeAlunos( alunos );
       leitorGravador.atualizarResumo( filename, mediaGeral, notaMinima, notaMaxima, quantidadeDeAlunos );
-      impressora.imprimirTabelaDeAlunos( alunos );
+      impressora.imprimirTabelaDeAlunos( alunos );*/
     } catch( Exception e ) {
       e.printStackTrace();
       System.out.println( e );
