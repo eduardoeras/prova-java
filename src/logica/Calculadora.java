@@ -6,16 +6,25 @@ import java.util.List;
 
 public class Calculadora {
 
-    public static float calcularMediaGeral( List<Aluno> alunos ) {
+    public float calcularMediaGeral( List<Aluno> alunos ) {
+        float mediaGeral = 0;
+        for (Aluno aluno : alunos) {
+            mediaGeral = mediaGeral + aluno.getMedia(); //Media aritimética simples: soma todas as médias
+        }
+        mediaGeral = mediaGeral / alunos.size(); //e divide pela quantidade de médias
 
+        return  mediaGeral;
     }
 
-    public static float calcularNotaMinima( List<Aluno> alunos ) {
+    public float calcularNotaMinima( List<Aluno> alunos ) {
+        return 0;
     }
 
-    public static float calcularNotaMaxima( List<Aluno> alunos ) {
+    public float calcularNotaMaxima( List<Aluno> alunos ) {
+        return 0;
     }
 
-    public static int calcularQuantidadeDeAlunos( List<Aluno> alunos ) {
+    public int calcularQuantidadeDeAlunos( List<Aluno> alunos ) {
+        return 0;
     }
 }
