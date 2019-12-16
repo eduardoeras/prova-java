@@ -12,13 +12,14 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.List; //Foi escolhido o tipo lista por manter a ordem dos elementos e ser de fácil iteração em um laço
+import java.util.List;
 
 public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a classe precisa extender o DefaultHandler
 
     //Attributes
-    private List<Aluno> alunos;
+    private List<Aluno> alunos; //Foi escolhido o tipo lista por manter a ordem dos elementos e ser de fácil iteração em um laço
 
     //Constructor
     public LeitorGravador () {
@@ -37,7 +38,34 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
 
     public void atualizarResumo( String filename, float mediaGeral, float notaMinima, float notaMaxima, int quantidadeDeAlunos ) throws Exception {
         String conteudo = ler(filename);
+        String atualizado = "";
 
+        atualizado = atualizado.concat( //Recorta do arquivo original, do começo até a posição da "média geral"
+                conteudo.substring(0, conteudo.lastIndexOf("</media_geral>") - 3)
+        );
+        DecimalFormat format = new DecimalFormat("###.#");
+        atualizado = atualizado.concat(String.valueOf(format.format(mediaGeral)));
+
+        atualizado = atualizado.concat( //Recorta do arquivo original, da posição da "média geral" até "nota máxima
+                conteudo.substring(conteudo.lastIndexOf("</media_geral>"), conteudo.lastIndexOf("</nota_maxima>") - 3)
+        );
+        atualizado = atualizado.concat(String.valueOf(notaMaxima));
+
+        atualizado = atualizado.concat( //Recorta do arquivo original, da posição de "nota máxima" até "nota mínima"
+                conteudo.substring(conteudo.lastIndexOf("</nota_maxima>"), conteudo.lastIndexOf("</nota_minima>") - 3)
+        );
+        atualizado = atualizado.concat(String.valueOf(notaMinima));
+
+        atualizado = atualizado.concat( //Recorta do arquivo original, da posição de "nota mínima" até "quantidade de alunos"
+                conteudo.substring(conteudo.lastIndexOf("</nota_minima>"), conteudo.lastIndexOf("</quantidade_alunos>") - 1)
+        );
+        atualizado = atualizado.concat(String.valueOf(quantidadeDeAlunos));
+
+        atualizado = atualizado.concat( //Recorta do arquivo original, da posição de "quantidade de alunos" até o final
+                conteudo.substring(conteudo.lastIndexOf("</quantidade_alunos>"))
+        );
+
+        System.out.println(atualizado);
     }
 
     //SAX Methods //
