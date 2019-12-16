@@ -25,21 +25,10 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
         alunos = new ArrayList<>();
     }
 
-    //Methods
+    // Public Methods //
     public List<Aluno> lerAlunosDoArquivoXml(String filename) {
         parser(filename);
         return alunos;
-    }
-
-    //SAX methods
-    public void startElement (String uri, String localName, String qName, Attributes attributes) {
-        if (qName.equals("aluno")) {
-            Aluno aluno = new Aluno(); //Esse hardcode para popular os atributos do aluno é horrível, mas para um programa dessa escala e pelo tempo disponível dá pra passar
-            aluno.setId(attributes.getValue(0));
-            aluno.setNome(attributes.getValue(1));
-            aluno.setMedia(Float.parseFloat(attributes.getValue(2)));
-            alunos.add(aluno);
-        }
     }
 
     public void backup( String arquivoOriginal, String arquivoBackup ) {
@@ -51,10 +40,23 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
 
     }
 
+    //SAX Methods //
+    public void startElement (String uri, String localName, String qName, Attributes attributes) {
+        if (qName.equals("aluno")) {
+            Aluno aluno = new Aluno(); //Esse hardcode para popular os atributos do aluno é horrível, mas para um programa dessa escala e pelo tempo disponível dá pra passar
+            aluno.setId(attributes.getValue(0));
+            aluno.setNome(attributes.getValue(1));
+            aluno.setMedia(Float.parseFloat(attributes.getValue(2)));
+            alunos.add(aluno);
+        }
+    }
+
+    // Private Methods //
+
     //Parser SAX
-    public void parser (String filename) {
+    private void parser (String filename) {
         try {
-            SAXParserFactory factory = SAXParserFactory.newInstance();
+            SAXParserFactory factory = SAXParserFactory.newInstance(); //Inicialização do parser SAX
             SAXParser parser = factory.newSAXParser();
             parser.parse(filename, this);
         } catch (ParserConfigurationException e) {
