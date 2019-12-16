@@ -1,7 +1,7 @@
 package estrutura;
 
-class Aluno {
-  //Escolhi manter o padrão no nome dos atributos com uma palavra simples
+public class Aluno {
+  //Escolhi manter o padrão no nome dos atributos de uma palavra simples
   private String id;
   private String nome;
   private float  media;
