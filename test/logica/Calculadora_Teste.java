@@ -18,6 +18,11 @@ public class Calculadora_Teste {
 
     @Test
     public void testeCalcularMediaGeral () {
-        System.out.println(calculadora.calcularMediaGeral(leitorGravador.lerAlunosDoArquivoXml("alunos.xml")));
+        System.out.println("Média Geral: " + calculadora.calcularMediaGeral(leitorGravador.lerAlunosDoArquivoXml("alunos.xml")));
+    }
+
+    @Test
+    public void testeCalcularNotaMínima () {
+        System.out.println("Nota Mínima: " + calculadora.calcularNotaMinima(leitorGravador.lerAlunosDoArquivoXml("alunos.xml")));
     }
 }
