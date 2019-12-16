@@ -1,9 +1,9 @@
 <root>
 	<resumo>
-		<media_geral>8,3</media_geral>
-		<nota_maxima>9.5</nota_maxima>
-		<nota_minima>7.2</nota_minima>
-		<quantidade_alunos>5</quantidade_alunos>
+		<media_geral>0.0</media_geral>
+		<nota_maxima>0.0</nota_maxima>
+		<nota_minima>0.0</nota_minima>
+		<quantidade_alunos>0</quantidade_alunos>
 	</resumo>
 	<alunos>
 		<aluno id="21" nome="João" media="7.5" />
