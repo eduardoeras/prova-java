@@ -23,7 +23,7 @@ class Problema01 {
       float notaMaxima = calculadora.calcularNotaMaxima( alunos );
       float notaMinima = calculadora.calcularNotaMinima( alunos );
       int quantidadeDeAlunos = calculadora.calcularQuantidadeDeAlunos( alunos );
-      //leitorGravador.atualizarResumo( filename, mediaGeral, notaMinima, notaMaxima, quantidadeDeAlunos );
+      leitorGravador.atualizarResumo( filename, mediaGeral, notaMinima, notaMaxima, quantidadeDeAlunos );
       impressora.imprimirTabelaDeAlunos( alunos );
     } catch( Exception e ) {
       e.printStackTrace();

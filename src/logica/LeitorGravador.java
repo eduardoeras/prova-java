@@ -57,6 +57,15 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
     }
 
     public void backup( String arquivoOriginal, String arquivoBackup ) {
+        salvar(arquivoBackup, ler(arquivoOriginal));
+    }
+
+    public static void atualizarResumo( String filename, float mediaGeral, float notaMinima, float notaMaxima, int quantidadeDeAlunos ) throws Exception {
+
+    }
+
+    //Lê o conteúdo do arquivo original
+    private String ler (String arquivoOriginal) {
         try {
             BufferedReader buffer = new BufferedReader(new FileReader(arquivoOriginal)); //Lê o arquivo original como texto plano por meio de um buffer
             try {
@@ -68,8 +77,7 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
                     buider.append(System.lineSeparator());
                     line = buffer.readLine();
                 }
-                String conteudo = buider.toString();
-                save (arquivoBackup, conteudo);
+                return buider.toString();
             } finally {
                 buffer.close();
             }
@@ -79,11 +87,8 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
         }
     }
 
-    public static void atualizarResumo( String filename, float mediaGeral, float notaMinima, float notaMaxima, int quantidadeDeAlunos ) throws Exception {
-    }
-
     //Salva um novo arquivo à partir de uma String
-    private void save (String nomeDoArquivo, String conteudo) {
+    private void salvar(String nomeDoArquivo, String conteudo) {
         try {
             PrintWriter printWriter = new PrintWriter(nomeDoArquivo + ".xml");
             printWriter.print(conteudo);
