@@ -33,7 +33,7 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
     }
 
     public void backup( String arquivoOriginal, String arquivoBackup ) {
-        salvar(arquivoBackup, ler(arquivoOriginal));
+        salvar(arquivoBackup + ".xml", ler(arquivoOriginal));
     }
 
     public void atualizarResumo( String filename, float mediaGeral, float notaMinima, float notaMaxima, int quantidadeDeAlunos ) throws Exception {
@@ -65,7 +65,7 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
                 conteudo.substring(conteudo.lastIndexOf("</quantidade_alunos>"))
         );
 
-        System.out.println(atualizado);
+        salvar(filename, atualizado);
     }
 
     //SAX Methods //
@@ -126,7 +126,7 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
     //Salva um novo arquivo à partir de uma String
     private void salvar(String nomeDoArquivo, String conteudo) {
         try {
-            PrintWriter printWriter = new PrintWriter(nomeDoArquivo + ".xml");
+            PrintWriter printWriter = new PrintWriter(nomeDoArquivo);
             printWriter.print(conteudo);
             printWriter.close();
         } catch (Exception e) {

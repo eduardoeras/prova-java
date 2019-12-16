@@ -27,7 +27,6 @@ class Problema01 {
       impressora.imprimirTabelaDeAlunos( alunos );
     } catch( Exception e ) {
       e.printStackTrace();
-      System.out.println( e );
     }
   }
 }
