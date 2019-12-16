@@ -17,7 +17,7 @@ class Problema01 {
     Impressora impressora = new Impressora();
     try {
       String filename = "alunos.xml";
-      //backup( filename, filename + ".bak" );
+      leitorGravador.backup(filename, filename + ".bak" );
       List<Aluno> alunos = leitorGravador.lerAlunosDoArquivoXml( filename );
       float mediaGeral = calculadora.calcularMediaGeral( alunos );
       float notaMaxima = calculadora.calcularNotaMaxima( alunos );

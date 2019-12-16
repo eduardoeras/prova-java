@@ -8,7 +8,10 @@ import org.xml.sax.helpers.DefaultHandler;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List; //Foi escolhido o tipo lista por manter a ordem dos elementos e ser de fácil iteração em um laço
 
@@ -54,8 +57,39 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
     }
 
     public void backup( String arquivoOriginal, String arquivoBackup ) {
+        try {
+            BufferedReader buffer = new BufferedReader(new FileReader(arquivoOriginal)); //Lê o arquivo original como texto plano por meio de um buffer
+            try {
+                StringBuilder buider = new StringBuilder();
+                String line = buffer.readLine();
+
+                while (line != null) {
+                    buider.append(line);
+                    buider.append(System.lineSeparator());
+                    line = buffer.readLine();
+                }
+                String conteudo = buider.toString();
+                save (arquivoBackup, conteudo);
+            } finally {
+                buffer.close();
+            }
+        } catch (IOException e) {
+            System.out.println("O arquivo original não foi encontrado!");
+            e.printStackTrace();
+        }
     }
 
     public static void atualizarResumo( String filename, float mediaGeral, float notaMinima, float notaMaxima, int quantidadeDeAlunos ) throws Exception {
+    }
+
+    //Salva um novo arquivo à partir de uma String
+    private void save (String nomeDoArquivo, String conteudo) {
+        try {
+            PrintWriter printWriter = new PrintWriter(nomeDoArquivo + ".xml");
+            printWriter.print(conteudo);
+            printWriter.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
