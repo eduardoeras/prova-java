@@ -27,21 +27,7 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
 
     //Methods
     public List<Aluno> lerAlunosDoArquivoXml(String filename) {
-        try {
-            SAXParserFactory factory = SAXParserFactory.newInstance();
-            SAXParser parser = factory.newSAXParser();
-            parser.parse(filename, this);
-        } catch (ParserConfigurationException e) {
-            System.out.println("Erro ao configurar o parser XML");
-            e.printStackTrace();
-        } catch (SAXException e) {
-            System.out.println("Erro ao parserar o arquivo XML, o arquivo é um XML válido?");
-            e.printStackTrace();
-        } catch (IOException e) {
-            System.out.println("Arquivo não encontrado!");
-            e.printStackTrace();
-        }
-
+        parser(filename);
         return alunos;
     }
 
@@ -60,8 +46,27 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
         salvar(arquivoBackup, ler(arquivoOriginal));
     }
 
-    public static void atualizarResumo( String filename, float mediaGeral, float notaMinima, float notaMaxima, int quantidadeDeAlunos ) throws Exception {
+    public void atualizarResumo( String filename, float mediaGeral, float notaMinima, float notaMaxima, int quantidadeDeAlunos ) throws Exception {
+        String conteudo = ler(filename);
 
+    }
+
+    //Parser SAX
+    public void parser (String filename) {
+        try {
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            SAXParser parser = factory.newSAXParser();
+            parser.parse(filename, this);
+        } catch (ParserConfigurationException e) {
+            System.out.println("Erro ao configurar o parser XML");
+            e.printStackTrace();
+        } catch (SAXException e) {
+            System.out.println("Erro ao parserar o arquivo XML, o arquivo é um XML válido?");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Arquivo não encontrado!");
+            e.printStackTrace();
+        }
     }
 
     //Lê o conteúdo do arquivo original
@@ -85,6 +90,7 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
             System.out.println("O arquivo original não foi encontrado!");
             e.printStackTrace();
         }
+        return "";
     }
 
     //Salva um novo arquivo à partir de uma String
