@@ -43,29 +43,14 @@ public class LeitorGravador extends DefaultHandler { //Para usar o parser SAX, a
     }
 
     //SAX methods
-    public void startDocument () {
-        //Empty
-    }
-
-    public void endDocument () {
-        //Empty
-    }
-
     public void startElement (String uri, String localName, String qName, Attributes attributes) {
         if (qName.equals("aluno")) {
             Aluno aluno = new Aluno(); //Esse hardcode para popular os atributos do aluno é horrível, mas para um programa dessa escala e pelo tempo disponível dá pra passar
             aluno.setId(attributes.getValue(0));
             aluno.setNome(attributes.getValue(1));
             aluno.setMedia(Float.parseFloat(attributes.getValue(2)));
+            alunos.add(aluno);
         }
-    }
-
-    public void endElement (String uri, String localName, String tag) {
-        //Empty
-    }
-
-    public void characters (char[] ch, int start, int length) {
-        //Empty
     }
 
     public void backup( String arquivoOriginal, String arquivoBackup ) {
